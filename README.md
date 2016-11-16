@@ -4,9 +4,32 @@
 
 The University of Melbourne Nectar node has a small number of machines with NVIDIA K1 GPUs installed. These are intended for VDI (Virtual Desktop) applications, rather than general purpose (GPGPU) usage. Check out our Hybrid HPC cluster [Spartan](https://dashboard.hpc.unimelb.edu.au/) if you're interested in that, as it has some GPU nodes.
 
-At the moment only Ubuntu 14.04 has been thoroughly tested, let us know if you're intersted in other operating systems. This guide assumes you're already familiar with the Nectar dashboard.
+At the moment only Ubuntu 14.04 and Windows Server 2012 has been thoroughly tested,  let us know if you're interested in other operating systems. This guide assumes you're already familiar with the Nectar dashboard.
 
-## Background
+# Windows
+### Background
+You can run Windows on our GPU flavour, the only limitation being that Windows Server is required as it includes support for RemoteFX which ensures graphics are rendered on the remote GPU, rather than your client computer. Windows Server 2012 R2 is equivalent to Windows 8.1, and so most applications should run without issue.
+
+### Steps
+
+1\. Send a request to support (support@ehelp.edu.au), letting us know you'd like to run a GPU instance, and require the following:
+
+* GPU flavour *mel.gpu-k1.large*
+* Access to the *melbourne-qh2-uom* availability zone.
+* Access to the Windows Server 2012 R2 install image.
+
+2\. Install windows as per the steps at https://github.com/resbaz/HOWTO-Nectar-Windows-VM The install and configuration interface is slightly different in Windows Server, but the steps are much the same.
+
+3\. Make sure you can connect to your instance via Remote Desktop, the GPU won't work via the browser based console.
+
+4\. Install the NVIDIA drivers on the Windows instance: http://www.nvidia.com/download/driverResults.aspx/111408/en-us
+
+5\. Reboot, and test using a benchmark like Unigine Heaven, we've been getting scores of around 440 using the default settings.
+
+
+# Linux
+
+### Background
 You'll need to install the following on your instance to take advantage of the GPU.
 
 * NVIDIA Binary Drivers
@@ -15,7 +38,7 @@ You'll need to install the following on your instance to take advantage of the G
 
 You then run remote OpenGL applications via the `vglrun` command so that any 3D commands are picked up, rendered remotely, and the result forwarded to your client machine via TurboVNC.
 
-## Steps
+### Steps
 
 1\. Send a request to support (support@ehelp.edu.au), letting us know you'd like to run a GPU instance, and require the following:
 
