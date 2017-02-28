@@ -22,7 +22,7 @@ You can run Windows on our GPU flavour, the only limitation being that Windows S
 
 3\. Make sure you can connect to your instance via Remote Desktop, the GPU won't work via the browser based console.
 
-4\. Install the NVIDIA drivers on the Windows instance: http://www.nvidia.com/download/driverResults.aspx/111408/en-us
+4\. Install the NVIDIA drivers on the Windows instance: http://www.nvidia.com/download/driverResults.aspx/108576/en-us
 
 5\. Reboot, and test using a benchmark like Unigine Heaven, we've been getting scores of around 440 using the default settings.
 
